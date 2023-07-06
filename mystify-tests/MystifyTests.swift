@@ -39,9 +39,11 @@ final class MystifyTests: XCTestCase {
       newState.snapshots.count,
       configuration.wireHistory
     )
+    XCTAssertNotEqual(
+      state.snapshots,
+      newState.snapshots
+    )
   }
-
-
 }
 
 /// Things

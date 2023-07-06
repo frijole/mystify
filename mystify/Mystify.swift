@@ -1,6 +1,6 @@
 import AppKit
 
-struct Corner {
+struct Corner: Equatable {
   let position: CGPoint
   let velocity: CGVector
 
@@ -9,22 +9,20 @@ struct Corner {
     var newVelocity = velocity
 
     if newPosition.x < 0 {
-      let underrun = newPosition.x
-      newPosition.x = -1 * underrun
+      newPosition.x = 0
       newVelocity.dx = -1 * velocity.dx
     } else if newPosition.x > bounds.width {
-      let overrun = bounds.width - newPosition.x
-      newPosition.x = newPosition.x - overrun
+      newPosition.x = bounds.width
       newVelocity.dx = -1 * velocity.dx
     }
 
     if newPosition.y < 0 {
       let underrun = newPosition.y
-      newPosition.y = -1 * underrun
+      newPosition.y = 0
       newVelocity.dy = -1 * velocity.dy
     } else if newPosition.y > bounds.height {
       let overrun = bounds.height - newPosition.y
-      newPosition.y = newPosition.y - overrun
+      newPosition.y = bounds.height
       newVelocity.dy = -1 * velocity.dy
     }
 
@@ -35,7 +33,7 @@ struct Corner {
   }
 }
 
-struct Wire {
+struct Wire: Equatable {
   let corners: [Corner]
   let color: NSColor
 
@@ -45,9 +43,21 @@ struct Wire {
       color: color
     )
   }
+
+  var wirePath: NSBezierPath {
+    let path = NSBezierPath()
+    guard let firstCorner = corners.first else { return path }
+    path.move(to: firstCorner.position)
+    corners.dropFirst().forEach { corner in
+      path.line(to: corner.position)
+    }
+    path.close()
+    path.lineWidth = 1
+    return path
+  }
 }
 
-struct WireSnapshot {
+struct WireSnapshot: Equatable {
   let wires: [Wire]
 
   func advance(within bounds: CGRect) -> WireSnapshot {
@@ -55,7 +65,7 @@ struct WireSnapshot {
   }
 }
 
-struct WireConfiguration {
+struct WireConfiguration: Equatable {
   let bounds: CGRect
   let wireCount: Int
   let wireHistory: Int
@@ -63,7 +73,7 @@ struct WireConfiguration {
 }
 
 extension Wire {
-  static func randomWire(in bounds: CGRect) -> Wire {
+  static func randomWire(in bounds: CGRect, color: NSColor = .cyan) -> Wire {
     return Wire(
       corners: [
         .randomCorner(in: bounds),
@@ -71,7 +81,7 @@ extension Wire {
         .randomCorner(in: bounds),
         .randomCorner(in: bounds)
       ],
-      color: .cyan
+      color: color
     )
   }
 }
@@ -97,8 +107,9 @@ struct State {
   init(configuration: WireConfiguration) {
     bounds = configuration.bounds
     var wires = [Wire]()
-    for _ in 0...configuration.wireCount {
-      wires.append(.randomWire(in: bounds))
+    for index in 1...configuration.wireCount {
+      let color = configuration.colors[index % configuration.colors.count]
+      wires.append(.randomWire(in: bounds, color: color))
     }
     snapshots = [WireSnapshot(wires: wires)]
   }
@@ -108,7 +119,7 @@ struct State {
     self.snapshots = snapshots
   }
 
-  func advance() -> State {
+  public func advance() -> State {
     var newSnapshots = snapshots
     guard let newSnapshot = newSnapshots.last?.advance(within: bounds) else { return self }
     newSnapshots.append(newSnapshot)
