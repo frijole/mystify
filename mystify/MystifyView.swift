@@ -26,6 +26,7 @@ class MystifyView: ScreenSaverView {
   }
 
   override func draw(_ rect: NSRect) {
+    guard isAnimating else { return }
     wireState.snapshots.forEach { snapshot in
       snapshot.wires.forEach { wire in
         wire.color.setStroke()
