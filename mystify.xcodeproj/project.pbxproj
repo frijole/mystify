@@ -7,15 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C237DE92A573A8800DB7697 /* MystifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C237DE82A573A8800DB7697 /* MystifyTests.swift */; };
+		3C237DEA2A573BE800DB7697 /* Mystify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCE8602A5713C0008B365A /* Mystify.swift */; };
 		3CBCE85F2A5706A0008B365A /* MystifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCE85E2A5706A0008B365A /* MystifyView.swift */; };
+		3CBCE8612A5713C0008B365A /* Mystify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCE8602A5713C0008B365A /* Mystify.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C237DE12A573A4900DB7697 /* mystify-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mystify-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C237DE82A573A8800DB7697 /* MystifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MystifyTests.swift; sourceTree = "<group>"; };
 		3C67772D2A5700800074F6C9 /* mystify.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mystify.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CBCE85E2A5706A0008B365A /* MystifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MystifyView.swift; sourceTree = "<group>"; };
+		3CBCE8602A5713C0008B365A /* Mystify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mystify.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3C237DDE2A573A4900DB7697 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3C67772A2A5700800074F6C9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -26,10 +39,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C237DE22A573A4900DB7697 /* mystify-tests */ = {
+			isa = PBXGroup;
+			children = (
+				3C237DE82A573A8800DB7697 /* MystifyTests.swift */,
+			);
+			path = "mystify-tests";
+			sourceTree = "<group>";
+		};
 		3C6777232A5700800074F6C9 = {
 			isa = PBXGroup;
 			children = (
 				3C67772F2A5700800074F6C9 /* mystify */,
+				3C237DE22A573A4900DB7697 /* mystify-tests */,
 				3C67772E2A5700800074F6C9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -38,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				3C67772D2A5700800074F6C9 /* mystify.saver */,
+				3C237DE12A573A4900DB7697 /* mystify-tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -46,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				3CBCE85E2A5706A0008B365A /* MystifyView.swift */,
+				3CBCE8602A5713C0008B365A /* Mystify.swift */,
 			);
 			path = mystify;
 			sourceTree = "<group>";
@@ -63,6 +87,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		3C237DE02A573A4900DB7697 /* mystify-tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C237DE72A573A4900DB7697 /* Build configuration list for PBXNativeTarget "mystify-tests" */;
+			buildPhases = (
+				3C237DDD2A573A4900DB7697 /* Sources */,
+				3C237DDE2A573A4900DB7697 /* Frameworks */,
+				3C237DDF2A573A4900DB7697 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "mystify-tests";
+			productName = "mystify-tests";
+			productReference = 3C237DE12A573A4900DB7697 /* mystify-tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		3C67772C2A5700800074F6C9 /* mystify */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C6777362A5700800074F6C9 /* Build configuration list for PBXNativeTarget "mystify" */;
@@ -88,8 +129,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					3C237DE02A573A4900DB7697 = {
+						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
+					};
 					3C67772C2A5700800074F6C9 = {
 						CreatedOnToolsVersion = 14.1;
 						LastSwiftMigration = 1410;
@@ -110,11 +155,19 @@
 			projectRoot = "";
 			targets = (
 				3C67772C2A5700800074F6C9 /* mystify */,
+				3C237DE02A573A4900DB7697 /* mystify-tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3C237DDF2A573A4900DB7697 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3C67772B2A5700800074F6C9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -125,17 +178,72 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3C237DDD2A573A4900DB7697 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C237DE92A573A8800DB7697 /* MystifyTests.swift in Sources */,
+				3C237DEA2A573BE800DB7697 /* Mystify.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3C6777292A5700800074F6C9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3CBCE85F2A5706A0008B365A /* MystifyView.swift in Sources */,
+				3CBCE8612A5713C0008B365A /* Mystify.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		3C237DE52A573A4900DB7697 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = W27P2Y376L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "info.frijole.mystify-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3C237DE62A573A4900DB7697 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = W27P2Y376L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "info.frijole.mystify-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		3C6777342A5700800074F6C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -169,6 +277,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -227,6 +336,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -242,6 +352,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
 		};
@@ -252,6 +363,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = W27P2Y376L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -280,6 +392,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = W27P2Y376L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -303,6 +416,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3C237DE72A573A4900DB7697 /* Build configuration list for PBXNativeTarget "mystify-tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C237DE52A573A4900DB7697 /* Debug */,
+				3C237DE62A573A4900DB7697 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3C6777272A5700800074F6C9 /* Build configuration list for PBXProject "mystify" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
