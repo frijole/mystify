@@ -9,20 +9,22 @@ struct Corner: Equatable {
     var newVelocity = velocity
 
     if newPosition.x < 0 {
-      newPosition.x = 0
+      let underrun = newPosition.x
+      newPosition.x = -1 * underrun
       newVelocity.dx = -1 * velocity.dx
     } else if newPosition.x > bounds.width {
-      newPosition.x = bounds.width
+      let overrun = newPosition.x - bounds.width
+      newPosition.x = bounds.width - overrun
       newVelocity.dx = -1 * velocity.dx
     }
 
     if newPosition.y < 0 {
       let underrun = newPosition.y
-      newPosition.y = 0
+      newPosition.y = -1 * underrun
       newVelocity.dy = -1 * velocity.dy
     } else if newPosition.y > bounds.height {
       let overrun = bounds.height - newPosition.y
-      newPosition.y = bounds.height
+      newPosition.y = bounds.height - overrun
       newVelocity.dy = -1 * velocity.dy
     }
 
